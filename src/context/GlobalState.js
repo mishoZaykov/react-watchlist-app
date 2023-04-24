@@ -15,7 +15,7 @@ export const GlobalProvider = props => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
   //actions
-  const addMovieToWarchList = movie => {
+  const addMovieToWatchList = movie => {
     dispatch({type: 'ADD_MOVIE_TO_WATCHLIST', payload: movie})
   }
 
@@ -24,7 +24,7 @@ export const GlobalProvider = props => {
       value={{
         watchlist: state.watchlist,
         watched: state.watched, 
-        addMovieToWarchList,
+        addMovieToWatchList,
       }}
     >
       {props.children}
