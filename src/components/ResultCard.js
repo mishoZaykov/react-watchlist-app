@@ -21,6 +21,10 @@ export const ResultCard = ({movie}) => {
               {movie.release_date ? movie.release_date.substring(0, 4) : '-'}
             </h4>
         </div> 
+
+        <div className='controls'>
+            <button className='btn'>Add to Watchlist</button>
+        </div>
       </div>
     </div>
 )};
