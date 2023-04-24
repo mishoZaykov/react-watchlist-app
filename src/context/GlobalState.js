@@ -1,5 +1,5 @@
 import React, {createContext, useReducer, useEffect} from "react";
-import AppReducer from "./AppReducer";
+import { AppReducer } from "./AppReducer";
 
 // initial state
 const initialState = {
@@ -36,6 +36,16 @@ export const GlobalProvider = props => {
     dispatch({type: 'ADD_MOVIE_TO_WATCHED', payload: movie})
   }
 
+  // move to watchlist
+  const moveToWatchlist = movie => {
+    dispatch({type: 'MOVE_TO_WATCHLIST', payload: movie})
+  }
+
+  // remove from watched
+  const removeFromWatched = id => {
+    dispatch({type: 'REMOVE_FROM_WATCHED', payload: id})
+  }
+
   return(
     <GlobalContext.Provider 
       value={{
@@ -43,7 +53,9 @@ export const GlobalProvider = props => {
         watched: state.watched, 
         addMovieToWatchList,
         removeMovieFromWatchList,
-        addMovieToWatched
+        addMovieToWatched,
+        moveToWatchlist,
+        removeFromWatched,
       }}
     >
       {props.children}
